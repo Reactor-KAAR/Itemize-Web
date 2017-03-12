@@ -2,6 +2,10 @@ html {
   font-family: 'Open Sans', sans-serif;
 }
 
+body {
+  display: flex;
+}
+
 .push-sides {
   margin-left: 12px;
   margin-right: 12px;
@@ -10,6 +14,16 @@ html {
 .push-ends {
   margin-top: 12px;
   margin-top: 12px;
+}
+
+.push-xlarge--sides {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.push-xlarge--ends {
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .push-xxlarge--sides {
@@ -118,6 +132,78 @@ html {
   cursor: pointer;
   color: rgb(51, 51, 51);
   font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: rgb(255, 238, 102) 0px 1px 0px;
+}
+
+//--------------------------------------------------------------------------------------------------
+// Cart Styling
+//--------------------------------------------------------------------------------------------------
+.cart-modal {
+  top: 10%;
+  left: 28%;
+}
+
+.cart-entry {
+  display: flex;
+  flex-direction: row;
+  background-color: #E0EAFC;
+  width: 400px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.cart-product-image {
+  margin-left: 20px;
+  width: 60px;
+  height: 90px;
+}
+
+.cart-entry-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 40px;
+}
+
+.remove-cart {
+  position: absolute;
+  right: 10%;
+  box-shadow: rgb(159, 180, 242) 0px 0px 0px 2px;
+  background: linear-gradient(rgb(120, 146, 194) 5%, rgb(71, 110, 158) 100%) rgb(120, 146, 194);
+  border-radius: 10px;
+  border: 1px solid rgb(78, 96, 150);
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-family: Arial;
+  font-size: 19px;
+  // padding: 12px 37px;
+  text-decoration: none;
+  text-shadow: rgb(40, 57, 102) 0px;
+}
+
+.checkout-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 50%;
+}
+
+.checkout-button {
+  margin-right: 10%;
+  box-shadow: rgb(255, 246, 175) 0px 1px 0px 0px;
+  background: linear-gradient(rgb(255, 236, 100) 5%, rgb(255, 171, 35) 100%) rgb(255, 236, 100);
+  border-radius: 6px;
+  border: 1px solid rgb(255, 170, 34);
+  display: inline-block;
+  cursor: pointer;
+  color: rgb(51, 51, 51);
   font-size: 15px;
   font-weight: bold;
   padding: 6px 24px;

@@ -20,6 +20,7 @@ class App extends Component {
     this.addToCart = this.addToCart.bind(this);
     this.removeFromCart = this.removeFromCart.bind(this);
     this.showCart = this.showCart.bind(this);
+    this.closeCart = this.closeCart.bind(this);
   }
   componentDidMount() {
     // Set to loading
@@ -37,8 +38,6 @@ class App extends Component {
     const rightInv = this.state.inventory.slice(itemNumber+1);
     const currInv = leftInv.concat(rightInv);
     const addedCart = this.state.cart.concat(product);
-    console.log('left', leftInv);
-    console.log('right', rightInv);
     this.setState({
       isLoading: false,
       inventory: currInv,
@@ -46,16 +45,26 @@ class App extends Component {
       cartAmount: addedCart.length,
     });
   }
-  changeSet() {
-
+  closeCart() {
+    this.setState({
+      cartShowing: false,
+    });
   }
-  removeFromCart() {
-
+  removeFromCart(itemNumber) {
+    const product = this.state.cart[itemNumber];
+    const left = this.state.cart.slice(0, itemNumber);
+    const right = this.state.cart.slice(itemNumber+1);
+    const currentCart = left.concat(right);
+    const currentInventory = this.state.inventory.concat(product);
+    this.setState({
+      inventory: currentInventory,
+      cart: currentCart,
+      cartAmount: currentCart.length,
+    });
   }
   showCart() {
-    const cartShowing = this.state.cart;
     this.setState({
-      cart: !cartShowing
+      cartShowing: !this.state.cartShowing
     });
   }
   render() {
@@ -71,6 +80,9 @@ class App extends Component {
           cartStatus={this.state.cartShowing}
           addToCart={this.addToCart}
           removeFromCart={this.removeFromCart}
+          closeCart={this.closeCart}
+          cartItems={this.state.cart}
+          removeItem={this.removeFromCart}
         />
       </div>
     );
