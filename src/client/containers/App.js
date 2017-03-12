@@ -24,10 +24,12 @@ class App extends Component {
   }
   componentDidMount() {
     // Set to loading
-    this.setState({
-      isLoading: false,
-      inventory: inventory
-    });
+    setTimeout(() => {
+      this.setState({
+        isLoading: false,
+        inventory: inventory
+      });
+    }, 1000);
   }
   addToCart(itemNumber) {
     this.setState({
@@ -38,12 +40,14 @@ class App extends Component {
     const rightInv = this.state.inventory.slice(itemNumber+1);
     const currInv = leftInv.concat(rightInv);
     const addedCart = this.state.cart.concat(product);
-    this.setState({
-      isLoading: false,
-      inventory: currInv,
-      cart: addedCart,
-      cartAmount: addedCart.length,
-    });
+    setTimeout(() => {
+      this.setState({
+        isLoading: false,
+        inventory: currInv,
+        cart: addedCart,
+        cartAmount: addedCart.length,
+      });
+    }, 1000);
   }
   closeCart() {
     this.setState({
@@ -51,16 +55,22 @@ class App extends Component {
     });
   }
   removeFromCart(itemNumber) {
+    this.setState({
+      isLoading: true
+    });
     const product = this.state.cart[itemNumber];
     const left = this.state.cart.slice(0, itemNumber);
     const right = this.state.cart.slice(itemNumber+1);
     const currentCart = left.concat(right);
     const currentInventory = this.state.inventory.concat(product);
-    this.setState({
-      inventory: currentInventory,
-      cart: currentCart,
-      cartAmount: currentCart.length,
-    });
+    setTimeout(() => {
+      this.setState({
+        isLoading: false,
+        inventory: currentInventory,
+        cart: currentCart,
+        cartAmount: currentCart.length,
+      });
+    }, 1000);
   }
   showCart() {
     this.setState({
